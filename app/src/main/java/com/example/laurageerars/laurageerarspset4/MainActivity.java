@@ -25,51 +25,22 @@ public class MainActivity extends AppCompatActivity {
         ListView ListView = findViewById(R.id.ListView);
         ListView.setAdapter(adapter);
         //Adapter(cursor);
-        ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            //ListView.setOnItemLongClickListener(new LongClick());
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                CheckBox checkbox = view.findViewById(R.id.Checkbox);
-                Cursor cursor = db.selectAll();
-                cursor.move(i + 1);
-                int ID = cursor.getInt(cursor.getColumnIndex("_id"));
+        ListView.setOnItemClickListener(new Click());
+        ListView.setOnItemLongClickListener(new LongClick());
+    }
 
-                if (checkbox.isChecked()) {
-                    db.update(ID, 0);
-                } else {
-                    db.update(ID, 1);
-                }
-
-                updateData();
-            }
-        });
-
-        ListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long id) {
-                //CheckBox checkbox = view.findViewById(R.id.Checkbox);
-                Cursor cursor = db.selectAll();
-                cursor.move(i + 1);
-                int ID = cursor.getInt(cursor.getColumnIndex("_id"));
-                db.delete(ID);
-                updateData();
-                return true;
-            }
-
-        });
-    
     /*public void Adapter(Cursor Info) {
         ListView ListView = findViewById(R.id.ListView);
         adapter = new TodoAdapter(this, Info);
         ListView.setAdapter(adapter);
     }*/
 
-    //public class Click implements AdapterView.OnItemClickListener {
-        /*@Override
+    public class Click implements AdapterView.OnItemClickListener {
+        @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             CheckBox checkbox = view.findViewById(R.id.Checkbox);
             Cursor cursor = db.selectAll();
-            cursor.move(i+1);
+            cursor.move(i + 1 );
             int ID = cursor.getInt(cursor.getColumnIndex("_id"));
 
             if (checkbox.isChecked()) {
@@ -81,23 +52,23 @@ public class MainActivity extends AppCompatActivity {
             }
 
             updateData();
-        }*/
+        }
 
     }
 
-    /*private class LongClick implements AdapterView.OnItemLongClickListener {
+    private class LongClick implements AdapterView.OnItemLongClickListener {
         @Override
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long id) {
             //CheckBox checkbox = view.findViewById(R.id.Checkbox);
             Cursor cursor = db.selectAll();
-            cursor.move(i+1);
+            cursor.move(i + 1 );
             int ID = cursor.getInt(cursor.getColumnIndex("_id"));
             db.delete(ID);
             updateData();
             return true;
         }
 
-    }*/
+    }
 
     public void addItem(View view) {
         EditText itemInvul = findViewById(R.id.invulText);

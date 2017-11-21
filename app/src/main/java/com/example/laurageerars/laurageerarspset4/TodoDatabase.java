@@ -83,11 +83,11 @@ public class TodoDatabase extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("completed", completed);
-        db.update("todos", values,"_id=" + id, null);
+        db.update("todos", values,"_id = " + id, null);
     }
 
     public void delete(long id) {
         SQLiteDatabase db = getWritableDatabase();
-        db.delete("todos","_id=" + id, null);
+        db.delete("todos","_id = " + id, null);
     }
 }
