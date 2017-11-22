@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "A new To Do Item added!", Toast.LENGTH_SHORT).show();
             itemInvul.setText("");
         }
+
         updateData();
     }
 

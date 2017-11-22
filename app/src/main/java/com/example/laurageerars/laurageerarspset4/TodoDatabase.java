@@ -41,23 +41,8 @@ public class TodoDatabase extends SQLiteOpenHelper {
         values.put("title", "Moar items");
         values.put("completed", 0);
         db.insert("todos",null, values);
-        //testDB();
+
     }
-
-    /*public void testDB() {
-        //SQLiteDatabase db = getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("title", "Do laundry");
-        values.put("completed", 1);
-        db.insert("todos",null,values);
-        values.put("title", "Get started");
-        values.put("completed", 0);
-        db.insert("todos",null,values);
-        values.put("title", "Moar items");
-        values.put("completed", 0);
-        db.insert("todos",null,values);
-
-    }*/
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
