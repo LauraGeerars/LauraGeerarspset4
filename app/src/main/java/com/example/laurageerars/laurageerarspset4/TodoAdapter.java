@@ -21,11 +21,11 @@ public class TodoAdapter extends CursorAdapter {
     }
 
     @Override
-    public void bindView(View view, Context context, Cursor cursor){
+    public void bindView(View view, Context context, Cursor cursor) {
         TextView listitem = view.findViewById(R.id.ListItem);
         CheckBox checkbox = view.findViewById(R.id.Checkbox);
         listitem.setText(cursor.getString(cursor.getColumnIndex("title")));
-        if (cursor.getInt(cursor.getColumnIndex("completed"))==1){
+        if (cursor.getInt(cursor.getColumnIndex("completed")) == 1) {
             checkbox.setChecked(true);
         }
         else {
